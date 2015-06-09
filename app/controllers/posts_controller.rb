@@ -25,6 +25,25 @@ class PostsController < ApplicationController
     # redirect_to post_path(@post)
   end
 
+  def edit
+    @post = Post.find(params[:id])
+    render :edit
+  end
+
+  def update
+    # tags = params[:tags].split(", ")
+    # tag_models = tags.map { |tag| Tag.find_or_create_by(name: tag) }
+    @post = Post.find(params[:id])
+    @post.update(title: params[:title],
+                 content: params[:content],
+                 written_at: DateTime.now)
+    redirect_to posts_path
+    # @post = Post.find_or_create_by(title: params[:title],
+    #                     content: params[:content],
+    #                     written_at: DateTime.now,)
+    # redirect_to posts_edit_path
+  end
+
   protected
   def get_page(n)
     page_offset = (n - 1) * 10
