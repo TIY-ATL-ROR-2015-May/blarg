@@ -27,6 +27,7 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    @tags = @post.tags.map(&:name).join(", ")
     render :edit
   end
 
