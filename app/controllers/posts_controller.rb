@@ -11,6 +11,9 @@ class PostsController < ApplicationController
   end
 
   def new
+    @post = Post.new
+    @action = posts_path
+    @http_verb = :post
     render :new
   end
 
@@ -28,16 +31,20 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     @tags = @post.tags.map(&:name).join(", ")
+    # @tags = @post.tags.map { |x| x.name }.join(", ")
+    @action = post_path(@post)
+    @http_verb = :patch
     render :edit
   end
 
   def update
-    # tags = params[:tags].split(", ")
-    # tag_models = tags.map { |tag| Tag.find_or_create_by(name: tag) }
+    tags = params[:tags].split(", ")
+    tag_models = tags.map { |tag| Tag.find_or_create_by(name: tag) }
     @post = Post.find(params[:id])
     @post.update(title: params[:title],
-                 content: params[:content])
-    redirect_to posts_path
+                 content: params[:content],
+                 tags: tag_models)
+    redirect_to post_path(@post)
   end
 
   def delete
