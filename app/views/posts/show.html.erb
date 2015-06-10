@@ -9,5 +9,5 @@
 
 <div>
   <br/>
-  <%= link_to "Delete Post", post_delete_path %>
+  <%= link_to 'Delete Post', posts_delete_path, method: :delete, data: { confirm: 'Are you sure?' } %>
 </div>

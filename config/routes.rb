@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get 'post/:id/edit', to: 'posts#edit', as: 'posts_edit'
   patch 'posts', to: 'posts#update'
 
-  delete 'post/:id', to: 'posts#delete', as: 'post_delete'
+  delete 'post/:id', to: 'posts#delete', as: 'posts_delete'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
