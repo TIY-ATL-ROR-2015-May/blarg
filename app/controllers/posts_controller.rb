@@ -35,13 +35,8 @@ class PostsController < ApplicationController
     # tag_models = tags.map { |tag| Tag.find_or_create_by(name: tag) }
     @post = Post.find(params[:id])
     @post.update(title: params[:title],
-                 content: params[:content],
-                 written_at: DateTime.now)
+                 content: params[:content])
     redirect_to posts_path
-    # @post = Post.find_or_create_by(title: params[:title],
-    #                     content: params[:content],
-    #                     written_at: DateTime.now,)
-    # redirect_to posts_edit_path
   end
 
   def delete
