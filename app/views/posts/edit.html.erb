@@ -18,7 +18,9 @@
       <%= text_area_tag(:content, @post.content, rows: 40, cols: 80) %>
     </div>
 
+
+
     <br/>
     <%= hidden_field_tag(:id, @post.id) %>
     <div><%= submit_tag 'Save' %></div>
-<% end %>
+    <% end %>
