@@ -10,6 +10,19 @@ class PostsController < ApplicationController
     render :show
   end
 
+  def edit
+    @post = Post.find(params[:id])
+    render :edit
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    @post.update(title: params[:title],
+    content: params[:content],
+    written_at: DateTime.now)
+    redirect_to posts_path
+  end
+
   def new
     render :new
   end
@@ -22,7 +35,6 @@ class PostsController < ApplicationController
                         written_at: DateTime.now,
                         tags: tag_models)
     redirect_to posts_path
-    # redirect_to post_path(@post)
   end
 
   protected

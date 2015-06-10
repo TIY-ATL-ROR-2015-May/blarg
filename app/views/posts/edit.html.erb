@@ -1,9 +1,10 @@
-<h2>New Post</h2>
+<h2>Edit Post</h2>
 
 <% # Title, Tags, Text %>
 <!-- Title, Tags, Text -->
 
-<%= form_tag('/posts', class: 'post-form') do %>
+
+<%= form_tag('/posts', method: :patch, class: 'post-form') do %>
   <div class="post-input">
     <%= label_tag(:title, "Title: ") %>
     <%= text_field_tag(:title, nil, size: 40) %>
@@ -22,6 +23,7 @@
 
   <br/>
   <div><%= submit_tag 'Save' %></div>
+  <%= hidden_field_tag(:id, @post.id) %>
 
 <% end %>
 <br/>
