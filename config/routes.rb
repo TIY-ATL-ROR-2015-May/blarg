@@ -21,6 +21,10 @@ Rails.application.routes.draw do
   post 'posts', to: 'posts#create'
   get 'posts', to: 'posts#index'
 
+  get 'api/posts', to: 'api#get_posts'
+  get 'api/users', to: 'api#get_users'
+  get 'api/comments', to: 'api#get_comments'
+
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
