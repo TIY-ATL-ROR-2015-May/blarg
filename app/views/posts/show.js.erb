@@ -1,0 +1,8 @@
+<% new_post = render partial: "post", object: @post %>
+<% new_nav = render partial: "post_nav", object: @post %>
+<% new_comments = render partial: "post_comments", object: @post %>
+
+$(".main-content").empty();
+<% [new_post, new_nav, new_comments].each do |html| %>
+  $(".main-content").append("<%= j(html) %>");
+<% end %>

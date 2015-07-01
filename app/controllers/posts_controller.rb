@@ -9,13 +9,15 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    render :show
+
+    respond_to do |format|
+      format.html { render :show }
+      format.js { render :show }
+    end
   end
 
   def new
     @post = Post.new
-    @action = posts_path
-    @http_verb = :post
     render :new
   end
 
@@ -34,8 +36,6 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @tags = @post.tags.map(&:name).join(", ")
     # @tags = @post.tags.map { |x| x.name }.join(", ")
-    @action = post_path(@post)
-    @http_verb = :patch
     render :edit
   end
 
