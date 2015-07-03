@@ -29,6 +29,12 @@ gem 'bootstrap-sass'
 gem 'devise'
 # Let's paginate stuff!
 gem 'kaminari'
+# Let's support file uploads.
+gem 'paperclip'
+# Let's store them on S3.
+gem 'aws-sdk'
+# Let's add foreman for environment variable stuff!
+gem 'foreman'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
